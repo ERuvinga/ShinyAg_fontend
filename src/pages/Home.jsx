@@ -1,11 +1,14 @@
 import '../App.css';
+import Globalstyle from "../style/Global"
+import Nav from "../Components/Nav"
 
 function App() {
-return (
-    <div>
-        <h1>Home</h1>
-    </div>
-)
+    return (
+        <Globalstyle>
+            <Nav />
+            <h1>Home</h1>
+        </Globalstyle>
+    )
 }
 
 export default App;
