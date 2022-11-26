@@ -1,11 +1,7 @@
-import React from 'react';
+import styled from "styled-components"
 
-const global = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
-
-export default global;
+const GlobalStyle = styled.div`
+    width:95%;
+    margin: auto;
+`
+export default GlobalStyle;
