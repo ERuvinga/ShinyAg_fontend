@@ -1,18 +1,31 @@
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-  
+/*inclusion des polices */
 
-.border{
-    border:solid 1px black;
+@font-face {
+  font-family: 'Trebuchet';
+  font-style: normal;
+  font-weight: bold;
+  src: url('polices/trebuc.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('polices/Comfortaa_Thin.ttf') format('ttf');
+}
+
+body {
+  margin: 0;
+  font-family: 'Comfortaa''Trebuchet', 'Roboto', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+.border {
+  border: solid 1px black;
+}
+
+.logo {
+  /*dimensionement du logo*/
+  width: 150px;
+  height: 50px;
 }
