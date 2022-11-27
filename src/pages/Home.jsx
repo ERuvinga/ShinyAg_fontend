@@ -14,12 +14,12 @@ const ContainerHome = styled.section`
     width:100%;
 `
 const LeftBloc = styled.div`
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:flex-start;
-width:40%;
-max-height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:flex-start;
+    width:40%;
+    max-height:100%;
 `
 
 const TextDescription = styled.h1`
@@ -33,22 +33,22 @@ const TextDescription = styled.h1`
 `
 
 const ButtonStyle = styled(Link)`
-color:white; 
-padding: 5px 20px; 
-text-decoration: none;
-text-align:center;
-width:35%;
+    color:white; 
+    padding: 5px 20px; 
+    text-decoration: none;
+    text-align:center;
+    width:35%;
 
-font-size: .9em;
-background-color : ${Color.primary}; 
-border-radius:35px; 
+    font-size: .9em;
+    background-color : ${Color.primary}; 
+    border-radius:35px; 
 `
 
 const Illustration = styled.img`
-display: bloc;
-max-width: 60%;
-max-height: 70%;
-`
+    display: bloc;
+    max-width: 60%;
+    max-height: 70%;
+    `
 
 
 function App() {
@@ -60,7 +60,7 @@ function App() {
                     <TextDescription>
                         Repérez vos besoins, <br /> on s’occupe du reste, <br />avec les meilleurs <br /> talents
                     </TextDescription>
-                    <ButtonStyle isFullLink exact="true" to="/Questions" className='NavLink'> Faire le teste</ButtonStyle>
+                    <ButtonStyle isFullLink exact="true" to="/Questions" className='NavLink'> Faire le test</ButtonStyle>
                 </LeftBloc>
                 <Illustration alt='illustration' src='/home-illustration.svg' />
             </ContainerHome>

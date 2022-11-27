@@ -8,15 +8,15 @@ import Results from '../../pages/Results'
 
 const index = () => {
     return (
-        <div>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path='/Survey' element={<Survey />} />
-                <Route path='/Questions' element={<Questions />} />
-                <Route path='/Freelances' element={<Freelances />} />
-                <Route path='/Results' element={<Results />} />
-            </Routes>
-        </div>
+        <Routes>
+
+            <Route path="/" element={<Home />} />
+            <Route path='/Survey' element={<Survey />} />
+            <Route path='/Questions' element={<Questions />} />
+            <Route path='/Freelances' element={<Freelances />} />
+            <Route path='/Results' element={<Results />} />
+
+        </Routes>
     );
 };
 
