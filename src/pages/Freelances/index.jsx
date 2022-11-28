@@ -31,7 +31,7 @@ const index = () => {
                 Freelances :
             </p>
 
-            <Cards datas={freelance[0]} />
+            {/*<Cards datas={freelance[0]} />*/}
         </GlobalStyle>
     );
 };
