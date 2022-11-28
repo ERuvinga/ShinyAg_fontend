@@ -32,7 +32,7 @@ const index = () => {
             <NavBarStyle>
                 <LinkStyle exact="true" to="/" className='NavLink'> Home </LinkStyle>
                 <LinkStyle exact="true" to="/Freelances" className='NavLink'> Profils</LinkStyle>
-                <LinkStyle isFullLink exact="true" to="/Questions" className='NavLink'> Faire le teste</LinkStyle>
+                <LinkStyle isFullLink exact="true" to="/Questions" className='NavLink'> Faire le test</LinkStyle>
             </NavBarStyle>
         </NavLabel>
     );

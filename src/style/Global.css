@@ -1,11 +1,5 @@
 /*inclusion des polices */
 
-@font-face {
-  font-family: 'Trebuchet';
-  font-style: normal;
-  font-weight: bold;
-  src: url('polices/trebuc.woff') format('woff');
-}
 
 @font-face {
   font-family: 'Comfortaa';

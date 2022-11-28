@@ -1,10 +1,13 @@
 import React from 'react';
+import Nav from '../../Components/Nav'
+import GlobalStyle from '../../style/Global';
 
 const index = () => {
     return (
-        <div>
+        <GlobalStyle>
+            <Nav />
             <p>Results page</p>
-        </div>
+        </GlobalStyle>
     );
 };
 
