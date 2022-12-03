@@ -13,10 +13,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-p {
-  text-align: center;
-}
-
 .border {
   border: solid 1px black;
 }
