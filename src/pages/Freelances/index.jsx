@@ -9,29 +9,29 @@ const index = () => {
         {
             label: "DevOPs",
             title: "Administrator",
-            picture: "def.png",
+            picture: "profile.png",
         },
 
         {
             label: "FullStack",
             title: "PDG",
-            picture: "def.png",
+            picture: "profile.png",
         },
 
         {
             label: "UXDesigner",
             title: "Chef",
-            picture: "def.png",
+            picture: "profile.png",
         }
     ]
     return (
-        <GlobalStyle>
+        <GlobalStyle >
             <Nav />
-            <p>
-                Freelances :
+            <h1 className='border'>Trouvez vos prestataires</h1>
+            <p className='border'>
+                Chez Shiny nous réunissons les meilleurs profils pour vous.
             </p>
-
-            {/*<Cards datas={freelance[0]} />*/}
+            <Cards datas={freelance[0]} />
         </GlobalStyle>
     );
 };
