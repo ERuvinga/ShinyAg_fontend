@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import ButtonQuestion from '../../Components/ButtonQuestion'
 import styled from 'styled-components'
+import GlobalStyle from '../../style/Global';
+import ButtonQuestion from '../../Components/ButtonQuestion'
 import Nav from '../../Components/Nav'
 import Colors from '../../style/colors/Color'
-import GlobalStyle from '../../style/Global';
 
 const QuestionGlobalStyle = styled.div`
     display:flex;
@@ -39,16 +39,24 @@ const Links = styled(Link)`
 `
 
 const Questions = () => {
+
+    //state gerant l'affichage de la page
     const [numberPage, setNumber] = useState(1);
     const [redirectLink, setredirectLink] = useState('#');
     const [nextLink, setnextLink] = useState('Suivante');
+    const [selected, setSelected] = useState([true, false]);
+
+    // les states gerant les donnees recus
     const [NowQuestion, setQuestion] = useState("Votre application doit-elle impérativement apparaître en premier dans les résultats de recherche ?");
 
-    const Handleminus = () => {
+    useEffect(() => {
+        console.log("elie");
+    }, []);
+
+    const HandlePrec = () => {
         if (numberPage > 1) {
             setNumber(numberPage - 1);
         }
-        console.log(numberPage);
 
         if (numberPage <= 5) {
             setredirectLink("#");
@@ -56,7 +64,14 @@ const Questions = () => {
         }
     }
 
-    const HandelPlus = () => {
+    const HandleYes = () => {
+        setSelected([true, false]);
+    }
+    const HandleNo = () => {
+        setSelected([false, true]);
+    }
+
+    const HandeleNext = () => {
 
         if (numberPage < 5) {
             setNumber(numberPage + 1);
@@ -79,13 +94,13 @@ const Questions = () => {
                     {NowQuestion}
                 </QuestionStyle>
                 <ContainerButtons>
-                    <ButtonQuestion selected>Oui</ButtonQuestion>
-                    <ButtonQuestion >Non</ButtonQuestion>
+                    <ButtonQuestion className={selected[0] ? 'selected' : 'delete_border'} onClick={HandleYes}>Oui</ButtonQuestion>
+                    <ButtonQuestion className={selected[1] ? 'selected' : 'delete_border'} onClick={HandleNo}>Non</ButtonQuestion>
                 </ContainerButtons>
 
                 <ContainerLinks>
-                    <Links to='#' onClick={Handleminus}> précedente</Links>
-                    <Links to={redirectLink} onClick={HandelPlus}> {nextLink}</Links>
+                    <Links to='#' onClick={HandlePrec}> précedente</Links>
+                    <Links to={redirectLink} onClick={HandeleNext}> {nextLink}</Links>
                 </ContainerLinks>
             </QuestionGlobalStyle>
         </GlobalStyle>

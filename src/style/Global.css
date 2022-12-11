@@ -22,3 +22,14 @@ body {
   width: 150px;
   height: 50px;
 }
+
+.delete_border {
+  border: none;
+}
+
+.selected {
+  /*css appliquer entre la selection de oui ou non sur la page des questions*/
+  color: #5843E4;
+  border: solid 1px #5843E4;
+
+}
