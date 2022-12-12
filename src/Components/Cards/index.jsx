@@ -39,7 +39,7 @@ const index = (props) => {
             <CardImage src={props.datas.picture} alt='avatar' />
             <CardLabel nameValue>{props.datas.title}</CardLabel>
         </ContainerCard>
-    ); {/*className='border' */ }
+    );
 };
 
 export default index;
