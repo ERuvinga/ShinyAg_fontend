@@ -55,7 +55,7 @@ const index = () => {
     return (
         <GlobalStyle >
             <Nav />
-            <di>
+            <div>
                 <Title>Trouvez votre prestataire</Title>
                 <DescriptionStyle>Chez Shiny nous réunissons les meilleurs profils pour vous.</DescriptionStyle>
                 <ProfilList>
@@ -66,7 +66,7 @@ const index = () => {
                     <Cards datas={freelance[0]} />
                     <Cards datas={freelance[2]} />
                 </ProfilList>
-            </di>
+            </div>
         </GlobalStyle>
     );
 };

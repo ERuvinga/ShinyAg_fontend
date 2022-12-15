@@ -21,7 +21,7 @@ const LinkStyle = styled(Link)`
     padding: 5px 0px;
     font-size: .9em;
 
-    ${(props) => props.isFullLink && `background-color : ${Color.primary}; color:white; padding: 5px 20px; border-radius:30px; `
+    ${(props) => props.isfulllink && `background-color : ${Color.primary}; color:white; padding: 5px 20px; border-radius:30px; `
     }
 `
 
@@ -32,7 +32,7 @@ const index = () => {
             <NavBarStyle>
                 <LinkStyle exact="true" to="/" className='NavLink'> Home </LinkStyle>
                 <LinkStyle exact="true" to="/Freelances" className='NavLink'> Profils</LinkStyle>
-                <LinkStyle isFullLink exact="true" to="/Questions" className='NavLink'> Faire le test</LinkStyle>
+                <LinkStyle isfulllink='true' exact="true" to="/Questions" className='NavLink'> Faire le test</LinkStyle>
             </NavBarStyle>
         </NavLabel>
     );

@@ -12,11 +12,9 @@ const ContainerCard = styled.div`
     border-radius: 25px;
     background-color:${Colors.backgroundLight};
     box-shadow:1px 1px 5px ${Colors.Shadow};
-    transition: padding .5s;
 
     &:hover{
         cursor:pointer;
-        padding: 17px;
     }
 
 `

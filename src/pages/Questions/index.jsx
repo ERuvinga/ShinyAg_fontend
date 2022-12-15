@@ -37,6 +37,26 @@ const ContainerLinks = styled.div`
 const Links = styled(Link)`
     color:${Colors.Questions};
 `
+/*
+const ListQuestions = () => {
+    fetch('http://localhost:8000/survey')
+        .then((res) => {
+            if (res.status) {
+                res.json()
+                    .then((dataJs) => {
+                        console.log(dataJs);
+                    })
+                    .catch((error) => {
+                        console.log("error");
+                    })
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+}*/
+
+
 
 const Questions = () => {
 
@@ -47,10 +67,24 @@ const Questions = () => {
     const [selected, setSelected] = useState([true, false]);
 
     // les states gerant les donnees recus
-    const [NowQuestion, setQuestion] = useState("Votre application doit-elle impérativement apparaître en premier dans les résultats de recherche ?");
+    const [Question, setQuestion] = useState({});
 
     useEffect(() => {
-        console.log("elie");
+        fetch('http://localhost:8000/survey')
+            .then((res) => {
+                if (res.status) {
+                    res.json()
+                        .then((Data) => {
+                            setQuestion(Data.surveyData); //data is Objet, content a other object"surveyData"
+                        })
+                        .catch((error) => {
+                            console.log("error");
+                        })
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            })
     }, []);
 
     const HandlePrec = () => {
@@ -91,7 +125,7 @@ const Questions = () => {
                     Question {numberPage}
                 </h2>
                 <QuestionStyle >
-                    {NowQuestion}
+                    {Question[numberPage]}
                 </QuestionStyle>
                 <ContainerButtons>
                     <ButtonQuestion className={selected[0] ? 'selected' : 'delete_border'} onClick={HandleYes}>Oui</ButtonQuestion>
