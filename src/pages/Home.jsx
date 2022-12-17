@@ -60,7 +60,7 @@ function App() {
                     <TextDescription>
                         Repérez vos besoins, <br /> on s’occupe du reste, <br />avec les meilleurs <br /> talents
                     </TextDescription>
-                    <ButtonStyle isFullLink exact="true" to="/Questions" className='NavLink'> Faire le test</ButtonStyle>
+                    <ButtonStyle exact="true" to="/Questions" className='NavLink'> Faire le test</ButtonStyle>
                 </LeftBloc>
                 <Illustration alt='illustration' src='/home-illustration.svg' />
             </ContainerHome>

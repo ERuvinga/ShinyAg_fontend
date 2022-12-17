@@ -1,4 +1,5 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
+
 import Cards from '../../Components/Cards'
 import colors from "../../style/colors/Color"
 import Nav from '../../Components/Nav'
@@ -6,13 +7,13 @@ import GlobalStyle from '../../style/Global';
 import styled from "styled-components"
 
 const ProfilList = styled.div`
-    width:60%;
+    width:70%;
     margin:auto;
     margin-top:20px;
     display:flex;
     align-items:center;
     flex-wrap: wrap;
-    justify-content: Center;
+    justify-content: flex-start;
 `
 
 const Title = styled.span`
@@ -31,44 +32,42 @@ const DescriptionStyle = styled.div`
     margin:30px 0px;
 `
 
-const index = () => {
+const Freelances = () => {
 
-    const freelance = [
-        {
-            label: "DevOPs",
-            title: "Administrator",
-            picture: "profile.png",
-        },
+    const [dataFreelances, setDataFreelance] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:8000/freelances')
+            .then((response) => {
+                if (response.ok) {
+                    response.json()
+                        .then((data) => {
+                            setDataFreelance(data.freelancersList);
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        })
+                }
+            })
 
-        {
-            label: "FullStack",
-            title: "PDG",
-            picture: "profile.png",
-        },
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
 
-        {
-            label: "UXDesigner",
-            title: "Chef",
-            picture: "profile.png",
-        }
-    ]
     return (
         <GlobalStyle >
             <Nav />
-            <di>
+            <div>
                 <Title>Trouvez votre prestataire</Title>
                 <DescriptionStyle>Chez Shiny nous réunissons les meilleurs profils pour vous.</DescriptionStyle>
                 <ProfilList>
-                    <Cards datas={freelance[2]} />
-                    <Cards datas={freelance[1]} />
-                    <Cards datas={freelance[0]} />
-                    <Cards datas={freelance[1]} />
-                    <Cards datas={freelance[0]} />
-                    <Cards datas={freelance[2]} />
+                    {dataFreelances.map((freelance, id) => <Cards datas={freelance} key={id * 2} />
+                    )}
+
                 </ProfilList>
-            </di>
+            </div>
         </GlobalStyle>
     );
 };
 
-export default index;
+export default Freelances;
