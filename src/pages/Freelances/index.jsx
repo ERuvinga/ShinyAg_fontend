@@ -8,12 +8,14 @@ import styled from "styled-components"
 
 const ProfilList = styled.div`
     width:70%;
+    height: 80%;
     margin:auto;
     margin-top:20px;
     display:flex;
     align-items:center;
     flex-wrap: wrap;
     justify-content: flex-start;
+    overflow-y: scroll;
 `
 
 const Title = styled.span`
@@ -57,7 +59,7 @@ const Freelances = () => {
     return (
         <GlobalStyle >
             <Nav />
-            <div>
+            <div className='mt-10'>
                 <Title>Trouvez votre prestataire</Title>
                 <DescriptionStyle>Chez Shiny nous réunissons les meilleurs profils pour vous.</DescriptionStyle>
                 <ProfilList>
