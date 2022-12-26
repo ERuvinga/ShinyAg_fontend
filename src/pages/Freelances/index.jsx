@@ -3,6 +3,7 @@ import { React, useEffect, useState } from 'react';
 import Cards from '../../Components/Cards'
 import colors from "../../style/colors/Color"
 import Nav from '../../Components/Nav'
+import Loader from '../../Components/loading'
 import GlobalStyle from '../../style/Global';
 import styled from "styled-components"
 
@@ -37,13 +38,17 @@ const DescriptionStyle = styled.div`
 const Freelances = () => {
 
     const [dataFreelances, setDataFreelance] = useState([]);
+    const [IsLoading, setIsLoading] = useState(false);
+
     useEffect(() => {
+        setIsLoading(true);
         fetch('http://localhost:8000/freelances')
             .then((response) => {
                 if (response.ok) {
                     response.json()
                         .then((data) => {
                             setDataFreelance(data.freelancersList);
+                            setIsLoading(false);
                         })
                         .catch((error) => {
                             console.log(error);
@@ -63,8 +68,9 @@ const Freelances = () => {
                 <Title>Trouvez votre prestataire</Title>
                 <DescriptionStyle>Chez Shiny nous réunissons les meilleurs profils pour vous.</DescriptionStyle>
                 <ProfilList>
-                    {dataFreelances.map((freelance, id) => <Cards datas={freelance} key={id * 2} />
-                    )}
+                    {
+                        IsLoading ? <Loader /> : dataFreelances.map((freelance, id) => <Cards datas={freelance} key={id * 2} />
+                        )}
 
                 </ProfilList>
             </div>
