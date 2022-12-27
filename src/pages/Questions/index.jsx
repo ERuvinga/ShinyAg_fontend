@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import GlobalStyle from '../../style/Global';
 import ButtonQuestion from '../../Components/ButtonQuestion'
 import Nav from '../../Components/Nav'
+import Loader from '../../Components/loading'
 import Colors from '../../style/colors/Color'
 
 const QuestionGlobalStyle = styled.div`
@@ -20,7 +21,8 @@ const QuestionStyle = styled.p`
     color: ${Colors.Questions};
     text-align: center;
     width:60%;
-    margin: 50px 0px;
+    height: 30px;
+    margin: 50px 0;
 `
 
 const ContainerButtons = styled.div`
@@ -37,26 +39,6 @@ const ContainerLinks = styled.div`
 const Links = styled(Link)`
     color:${Colors.Questions};
 `
-/*
-const ListQuestions = () => {
-    fetch('http://localhost:8000/survey')
-        .then((res) => {
-            if (res.status) {
-                res.json()
-                    .then((dataJs) => {
-                        console.log(dataJs);
-                    })
-                    .catch((error) => {
-                        console.log("error");
-                    })
-            }
-        })
-        .catch((error) => {
-            console.log(error);
-        })
-}*/
-
-
 
 const Questions = () => {
 
@@ -65,17 +47,20 @@ const Questions = () => {
     const [redirectLink, setredirectLink] = useState('#');
     const [nextLink, setnextLink] = useState('Suivante');
     const [selected, setSelected] = useState([true, false]);
+    const [IsLoading, setIsLoading] = useState(false);
 
     // les states gerant les donnees recus
     const [Question, setQuestion] = useState({});
 
     useEffect(() => {
+        setIsLoading(true);  // the state to loading frame is to true
         fetch('http://localhost:8000/survey')
             .then((res) => {
                 if (res.status) {
                     res.json()
                         .then((Data) => {
                             setQuestion(Data.surveyData); //data is Objet, content a other object"surveyData"
+                            setIsLoading(false); //delete the frame loading and replace a datas questions when the Api he's response
                         })
                         .catch((error) => {
                             console.log("error");
@@ -125,7 +110,9 @@ const Questions = () => {
                     Question {numberPage}
                 </h2>
                 <QuestionStyle >
-                    {Question[numberPage]}
+                    {
+                        IsLoading ? <Loader /> : Question[numberPage] //if a data is loading the loader component is use else (the datas is available) use it 
+                    }
                 </QuestionStyle>
                 <ContainerButtons>
                     <ButtonQuestion className={selected[0] ? 'selected' : 'delete_border'} onClick={HandleYes}>Oui</ButtonQuestion>

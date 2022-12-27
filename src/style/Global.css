@@ -13,6 +13,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.mt-10 {
+  margin-top: 10px;
+}
+
 .border {
   border: solid 1px black;
 }
