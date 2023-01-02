@@ -3,13 +3,15 @@ import Nav from "../Components/Nav"
 import styled from "styled-components"
 import Color from '../style/colors/Color';
 import { Link } from 'react-router-dom';
+import { useContext } from "react";
+import { ThemeContext } from "../style/utils/context";
 
 const ContainerHome = styled.section`
     margin-top:10px;
     display:flex;
     justify-content:space-around;
     align-items:center;
-    background-color:${Color.backgroundLight};
+    ${(props) => (props.mode === 'light') ? `background-color: ${Color.backgroundLight} ` : `background-color: black`};
     width:100%;
 `
 const LeftBloc = styled.div`
@@ -51,10 +53,11 @@ const Illustration = styled.img`
 
 
 function App() {
+    const { theme } = useContext(ThemeContext);
     return (
         <Globalstyle>
             <Nav />
-            <ContainerHome>
+            <ContainerHome mode={theme}>
                 <LeftBloc>
                     <TextDescription>
                         Repérez vos besoins, <br /> on s’occupe du reste, <br />avec les meilleurs <br /> talents

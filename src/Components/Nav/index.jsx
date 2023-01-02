@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom'
 import styled from "styled-components"
 import Color from '../../style/colors/Color';
+import { ThemeContext } from '../../style/utils/context/index'
 
 const NavLabel = styled.nav`
     width:100%;
@@ -32,12 +33,21 @@ const ChangeModeBtn = styled.span`
     cursor: pointer;
 `
 
-const index = () => {
+
+const NavBar = () => {
+    const { theme, toogleTheme } = useContext(ThemeContext);
+    const [Mode, setMode] = useState(theme);
+
+    const HandletoogleMode = () => {
+        toogleTheme();
+        setMode(theme);
+    }
+
     return (
         <NavLabel>
-            <img src='/dark-logo.png' alt='logo' className='logo' />
+            <img src={theme === 'light' ? '/dark-logo.png' : '/light-logo.png'} alt='logo' className='logo' />
             <NavBarStyle>
-                <ChangeModeBtn>Mode</ChangeModeBtn>
+                <ChangeModeBtn onClick={HandletoogleMode}>{Mode}</ChangeModeBtn>
                 <LinkStyle exact="true" to="/" className='NavLink'> Home </LinkStyle>
                 <LinkStyle exact="true" to="/Freelances" className='NavLink'> Profils</LinkStyle>
                 <LinkStyle isfulllink='true' exact="true" to="/Questions" className='NavLink'> Faire le test</LinkStyle>
@@ -46,4 +56,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default NavBar;
