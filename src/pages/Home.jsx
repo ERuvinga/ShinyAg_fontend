@@ -1,4 +1,3 @@
-import '../App.css';
 import Globalstyle from "../style/Global"
 import Nav from "../Components/Nav"
 import styled from "styled-components"
