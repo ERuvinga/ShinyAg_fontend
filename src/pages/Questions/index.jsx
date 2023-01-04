@@ -17,7 +17,7 @@ const QuestionGlobalStyle = styled.div`
 `
 
 
-const QuestionStyle = styled.p`
+const QuestionStyle = styled.div`
     color: ${Colors.Questions};
     text-align: center;
     width:60%;
