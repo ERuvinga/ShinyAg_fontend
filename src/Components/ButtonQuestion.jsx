@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Color from '../style/colors/Color';
 
 const ButtonStyle = styled.button`
     font-family: Comfortaa;
