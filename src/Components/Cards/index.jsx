@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from "styled-components"
 import Colors from "../../style/colors/Color"
+import { ThemeContext } from '../../style/utils/context';
 
 const ContainerCard = styled.div`
-    width:130px;
+    width:135px;
     height:150px;
     display:flex;
     flex-direction: column;
@@ -11,7 +12,7 @@ const ContainerCard = styled.div`
     margin: 15px 25px;
     border-radius: 25px;
     background-color:${Colors.backgroundLight};
-    box-shadow:1px 1px 5px ${Colors.Shadow};
+    box-shadow: 1px 1px 4px ${(props) => props.mode === 'light' ? Colors.Shadow : 'black'};
 
     &:hover{
         cursor:pointer;
@@ -31,9 +32,11 @@ const CardImage = styled.img`
         margin:auto;
 `
 
-const index = (props) => {
+const Index = (props) => {
+    const {theme} = useContext(ThemeContext);
+
     return (
-        <ContainerCard>
+        <ContainerCard mode={theme}>
             <CardLabel >{props.datas.job}</CardLabel>
             <CardImage src={props.datas.picture} alt='avatar' />
             <CardLabel nameValue>{props.datas.name}</CardLabel>
@@ -41,4 +44,4 @@ const index = (props) => {
     );
 };
 
-export default index;
+export default Index;
