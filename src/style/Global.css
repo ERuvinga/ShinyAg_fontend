@@ -3,12 +3,12 @@
 
 @font-face {
   font-family: 'Comfortaa';
-  src: url('polices/Comfortaa_Thin.ttf') format('ttf');
+  src: url('polices/Comfortaa_Regular.ttf');
 }
 
 body {
   margin: 0;
-  font-family: 'Comfortaa''Trebuchet', 'Roboto', 'Helvetica Neue', sans-serif;
+  font-family: 'Comfortaa','Trebuchet', 'Roboto', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
