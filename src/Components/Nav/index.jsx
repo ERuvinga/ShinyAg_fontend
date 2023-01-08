@@ -29,8 +29,8 @@ const LinkStyle = styled(Link)`
 `
 
 const DarkLightStyled = styled.span`
-    width:60px;
-    height: 25px;
+    width:55px;
+    height: 26px;
     border: 1px solid ${Color.Navtext};
     border-radius: 20px;
 
@@ -38,21 +38,28 @@ const DarkLightStyled = styled.span`
     font-size: .9em;
     cursor: pointer;
 `
+
+const ContainerImg = styled.div`
+    transition: all 1s;
+    ${(props) => (props.mode === "light" ? `transform: trasnlateX(0);` : `transform:  translateX(29px);`)
+}    
+
+`
+
 const Circle = styled.img`
     padding: 2px;
     width: 22px;
     height: 22px;
-    border-radius: 20px;
-    background-color: ${Color.Navtext};
+    background-color: ${Color.backgroundLight};
     opacity: .5;
-    transition: all 1s;
+    transition: all 2s;
+    border-radius: 20px;
 
     &: hover{
         opacity: 1;
-        transform: scale(2) rotate(360deg);
     }
 
-    ${(props) => props.mode && `opacity : 0.5; transform: rotate(0deg)`
+    ${(props) => (props.mode === 'light' ? `transform: rotate(-120deg)` : `transform: rotate(250deg); `)
     }
 `
 
@@ -68,7 +75,7 @@ const NavBar = () => {
         <NavLabel>
             <img src={theme === 'light' ? '/dark-logo.png' : '/light-logo.png'} alt='logo' className='logo' />
             <NavBarStyle className=''>
-                <DarkLightStyled onClick={HandletoogleMode}><Circle src={theme === 'light' ? 'light.png' : '/dark.png'} mode={theme === 'light' ? true : false} className='' /> </DarkLightStyled>
+                <DarkLightStyled onClick={HandletoogleMode}><ContainerImg mode={theme}><Circle src={theme === 'light' ? 'light.png' : '/dark.png'} mode={theme} /></ContainerImg> </DarkLightStyled>
                 <LinkStyle exact="true" to="/" className='NavLink'> Home </LinkStyle>
                 <LinkStyle exact="true" to="/Freelances" className='NavLink'> Profils</LinkStyle>
                 <LinkStyle isfulllink='true' exact="true" to="/Questions" className='NavLink '> Faire le test</LinkStyle>
